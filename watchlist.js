@@ -2,6 +2,8 @@
 const wListCard = document.getElementById('watchlist-card')
 let moviesFromLocalStorage = JSON.parse(localStorage.getItem("movies"))
 
+// localStorage.clear()
+
 wListCard.innerHTML = `<div class="empty-watchlist">
             <h3>Your watchlist is looking a little empty...</h3>
             <a href="./index.html">

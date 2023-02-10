@@ -64,14 +64,13 @@ function getMoviesFromSearch(movies) {
 }
 
 
-document.addEventListener('click', (e) => {
+document.addEventListener('click', async (e) => {
     if (e.target.dataset.id) {
-        fetch(`http://www.omdbapi.com/?i=${e.target.dataset.id}&apikey=fb65d34e`)
-            .then(Response => Response.json())
-            .then(data => {
-                watchListArray.unshift(data)
-                localStorage.setItem("movies", JSON.stringify(watchListArray))
-            })
+        const response = await fetch(`http://www.omdbapi.com/?i=${e.target.dataset.id}&apikey=fb65d34e`)
+        const data = await response.json()    
+            watchListArray.unshift(data)
+            localStorage.setItem("movies", JSON.stringify(watchListArray))
+            
     }
 })
 
